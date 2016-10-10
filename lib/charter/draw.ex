@@ -4,6 +4,6 @@ defmodule Charter.Draw do
     |> Mogrify.custom("fill", "blue")
     |> Mogrify.custom("stroke", "transparent")
     |> Mogrify.custom("gravity", "North")
-    |> Mogrify.Draw.text(0, 20, chart.title)
+    |> Mogrify.Draw.text(0, chart.default_margin, chart.title)
   end
 end

@@ -1,11 +1,10 @@
 defmodule Charter do
   import Mogrify
-  import Charter.Bar
+  import Charter.BarChart
 
   def bar do
-    %Charter.Bar{}
-    |> data(:Jimmy, [20,25,30])
-    |> data(:Mary, [30,25,50])
+    %Charter.BarChart{}
+    |> data(:Jimmy, [40,25,30])
     |> title("Hello World!")
     |> write("bar.png")
   end

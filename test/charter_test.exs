@@ -1,5 +1,5 @@
 defmodule CharterTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Charter
 
   test "the truth" do
