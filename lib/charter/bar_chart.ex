@@ -6,25 +6,7 @@ defmodule Charter.BarChart do
   alias Charter.BarChart
   alias Charter.Chart
 
-  def size(%BarChart{}=bar, width) do
-    update_chart(bar, width: width)
-  end
-
-  def add_color(%BarChart{}=bar, color) do
-    update_chart(bar,  colors: [color | bar.chart.colors])
-  end
-
-  def data(%BarChart{}=bar, name, data_points) do
-    update_chart(bar, data: Map.put(bar.chart.data, name, data_points))
-  end
-
-  def title(%BarChart{}=bar, title) do
-    update_chart(bar, title: title)
-  end
-
-  def theme(%BarChart{}=bar, name) do
-    %{bar | chart: Chart.theme(bar.chart, name)}
-  end
+  use Charter.Chartable
 
   def construct_image(%BarChart{}=bar, filename) do
     bar = update_chart(bar, metadata: Charter.Setup.calculate_metadata(bar.chart))
@@ -33,16 +15,6 @@ defmodule Charter.BarChart do
     |> Mogrify.canvas("white")
     |> Charter.Draw.title(bar.chart)
     |> draw_bars(bar)
-  end
-
-  def create_image(%Mogrify.Image{}=image) do
-    image
-    |> Mogrify.create(path: ".")
-  end
-
-  def write(%BarChart{}=bar, filename) do
-    construct_image(bar, filename)
-    |> create_image
   end
 
   defp update_chart(bar, updates) do
