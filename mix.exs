@@ -28,7 +28,8 @@ defmodule Charter.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:mogrify, path: "../mogrify"}
+      {:mogrify, github: "route/mogrify", override: true},
+      {:mogrify_draw, path: "../mogrify_draw"},
     ]
   end
 end

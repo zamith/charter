@@ -23,14 +23,14 @@ defmodule Charter.Setup do
     chart.data |> Map.keys |> length
   end
 
-  defp calculate_spread(chart) do
-    spread = chart.maximum_value/1 - chart.minimum_value/1
-    if spread > 0 do spread else 1 end
-  end
+  # defp calculate_spread(chart) do
+  #   spread = chart.maximum_value/1 - chart.minimum_value/1
+  #   if spread > 0 do spread else 1 end
+  # end
 
   def find_extremes(chart) do
     chart.data
-    |> Enum.reduce({chart.maximum_value, chart.minimum_value}, fn({series_name, data_points}, {max, min}) ->
+    |> Enum.reduce({chart.maximum_value, chart.minimum_value}, fn({_series_name, data_points}, {max, min}) ->
       Enum.reduce(data_points, {max, min}, fn(data_point, acc) ->
         extremes(data_point, acc)
       end)
