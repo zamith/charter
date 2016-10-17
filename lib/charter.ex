@@ -4,7 +4,7 @@ defmodule Charter do
 
   def bar do
     %Charter.BarChart{}
-    |> size(300)
+    |> size(800)
     |> theme(:keynote)
     |> data(:Jimmy, [40,25,30])
     |> title("Hello World!")

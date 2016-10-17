@@ -1,8 +1,15 @@
 defmodule Charter.Chartable do
   defmacro __using__(_opts) do
     quote do
+      def size(chartable, dimensions) when is_binary(dimensions) do
+        [width, height] = String.split(dimensions, "x")
+        scale = height / chartable.chart.raw_heigth
+        update_chart(chartable, width: width, height: height, scale: scale)
+      end
       def size(chartable, width) do
-        update_chart(chartable, width: width)
+        height = width * 0.75
+        scale = height / chartable.chart.raw_heigth
+        update_chart(chartable, width: width, height: height, scale: scale)
       end
 
       def add_color(chartable, color) do

@@ -4,7 +4,13 @@ defmodule Charter.Chart do
   defstruct data: %{},
     title: "",
     width: 800,
+    height: 800 * 0.75,
+    raw_width: 800,
+    raw_heigth: 800 * 0.75,
+    scale: 1,
     colors: ["blue"],
+    font_color: "black",
+    background_color: "white",
     maximum_value: nil,
     minimum_value: nil,
     default_margin: 20,
@@ -12,7 +18,13 @@ defmodule Charter.Chart do
     metadata: %Charter.Setup{}
 
     def theme(chart, name) do
-      %{chart | colors: Charter.Themes.theme(name).colors}
+      theme = Charter.Themes.theme(name)
+      %{
+        chart |
+          colors: theme.colors,
+          font_color: theme.font_color,
+          background_color: theme.background_color,
+      }
     end
 
     def color_for_column(chart, index) do

@@ -10,6 +10,8 @@ defmodule Charter.Themes do
         '#EFAA43',  # orange
         'white',
       ],
+      font_color: "white",
+      background_color: "black",
     }
   end
 end
