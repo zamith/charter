@@ -4,9 +4,7 @@ Charter is a simple to use chart generation library for Elixir. It is currently 
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `charter` to your list of dependencies in `mix.exs`:
+1. Add `charter` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
@@ -14,7 +12,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
-  2. Ensure `charter` is started before your application:
+2. Ensure `charter` is started before your application:
 
     ```elixir
     def application do
