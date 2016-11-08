@@ -1,6 +1,6 @@
 # Charter
 
-**TODO: Add description**
+Charter is a simple to use chart generation library for Elixir. It is currently in a very early stage, so the functionality is limited, but the idea is to support a few different types of charts with multiple options and combinations.
 
 ## Installation
 
@@ -22,3 +22,21 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
+## Usage
+
+Here's a simple example of how to draw a bar chart, with some of the available options. 
+
+```elixir
+defmodule Charter do
+  import Charter.BarChart
+
+  def bar do
+    %Charter.BarChart{}
+    |> size(800)
+    |> theme(:keynote)
+    |> data(:series_name, [40,25,30])
+    |> title("Hello World!")
+    |> write("bar.png")
+  end
+end
+```
