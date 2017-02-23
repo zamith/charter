@@ -1,1 +1,2 @@
-%{"mogrify": {:git, "https://github.com/route/mogrify.git", "0565480af3a70db6c94635204fda1d58eaa8a4d0", []}}
+%{"mogrify": {:hex, :mogrify, "0.5.4", "acb5568335069c5742df444559961b86c304d7969853e77d6561ca916910f75e", [:mix], []},
+  "mogrify_draw": {:hex, :mogrify_draw, "0.1.1", "858e0eb209bad3d408cfce4845e49e049395f2ae80c0802ecf0b0b8c1b954207", [:mix], [{:mogrify, "~> 0.5.4", [hex: :mogrify, optional: false]}]}}
